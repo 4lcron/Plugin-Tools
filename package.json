@@ -1,0 +1,34 @@
+{
+  "name": "@4lch4/cronicle-plugin-tools",
+  "version": "0.0.2",
+  "description": "A lib of helper functions for new Cronicle Plugins.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "pretty": "prettier --write .",
+    "publish": "npm publish --access public",
+    "prepublishOnly": "npm run pretty && npm run build"
+  },
+  "keywords": [
+    "cronicle",
+    "cronicle-tools",
+    "cronicle-plugin"
+  ],
+  "author": {
+    "name": "4lch4",
+    "email": "hey@4lch4.email",
+    "url": "https://alcha.org"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.14",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "commander": "^9.0.0",
+    "discord-ts-webhook": "^1.2.1",
+    "dotenv": "^16.0.0"
+  }
+}
