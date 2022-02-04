@@ -1,5 +1,5 @@
 /** A JSON object that is passed to the job when it is started. */
-export interface IJobInput<P> {
+export interface IJobInput<P = any> {
   /** A unique alphanumeric ID assigned to the job. */
   id: string
 
