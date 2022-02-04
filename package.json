@@ -6,8 +6,7 @@
   "scripts": {
     "build": "tsc",
     "pretty": "prettier --write .",
-    "publish": "npm publish --access public",
-    "prepublishOnly": "npm run pretty && npm run build"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "cronicle",
