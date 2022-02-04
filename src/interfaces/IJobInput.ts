@@ -1,5 +1,5 @@
 /** A JSON object that is passed to the job when it is started. */
-export interface IJobInput<P = any> {
+export interface IJobInput<P> {
   /** A unique alphanumeric ID assigned to the job. */
   id: string
 
@@ -29,5 +29,5 @@ export interface IJobInput<P = any> {
    * An object containing your Plugin's custom parameters, filled out with
    * values from the Event Editor.
    */
-  params: P
+  params: P | any
 }
