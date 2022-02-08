@@ -30,4 +30,16 @@ export interface IJobInput<P> {
    * values from the Event Editor.
    */
   params: P | any
+
+  /** Custom user data, if applicable. */
+  chain_data?: any
+
+  /** The ID of the original event that started the chain reaction. */
+  source_event?: string
+
+  /** The error code from the original job, or 0 for success. */
+  chain_code?: number
+
+  /** The error description from the original job, if applicable. */
+  chain_description?: string
 }
