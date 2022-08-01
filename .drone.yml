@@ -3,6 +3,11 @@ kind: pipeline
 name: Build-And-Publish
 type: docker
 
+trigger:
+  branch:
+    - main
+    - develop
+
 steps:
   - name: Build & Test Codebase
     image: node:lts-alpine
@@ -16,6 +21,9 @@ kind: pipeline
 name: Perform-Scheduled-Snyk-Scans
 type: docker
 
+depends_on:
+  - Build-And-Publish
+
 trigger:
   event:
     - cron
@@ -23,6 +31,9 @@ trigger:
     include:
       - weekly
       - nightly
+  branch:
+    - main
+    - develop
 
 steps:
   - name: Perform Snyk Scans
