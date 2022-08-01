@@ -3,7 +3,13 @@
  * `STDIN` & `STDOUT`.
  */
 export class IOUtil {
-  readPipedInput<T>(): Promise<T> {
+  /**
+   * Reads STDIN and returns the contents as a JSON object of the given generic
+   * type `T`.
+   *
+   * @returns The input object for the job.
+   */
+  readPipedInput<T = any>(): Promise<T> {
     return new Promise((resolve, reject) => {
       try {
         var data: string = ''
@@ -18,7 +24,7 @@ export class IOUtil {
         process.stdin.on('end', function () {
           if (data !== undefined) {
             const parsed = JSON.parse(data)
-            resolve(parsed)
+            resolve(parsed as T)
           }
         })
       } catch (err) {
