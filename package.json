@@ -1,5 +1,6 @@
 {
-  "name": "@4lch4/cronicle-plugin-tools",
+  "name": "@4is-cronicle/plugin-tools",
+  "displayName": "Cronicle Plugin Tools",
   "version": "0.1.5",
   "description": "A lib of helper functions for new Cronicle Plugins.",
   "main": "dist/index.js",
