@@ -23,7 +23,7 @@ steps:
     image: robertstettner/drone-codecov
     settings:
       files:
-        - "coverage/**"
+        - 'coverage/**'
       token:
         from_secret: CODECOV_TOKEN
 
@@ -48,7 +48,7 @@ kind: pipeline
 name: Publish
 
 depends_on:
-  - "Build"
+  - 'Build'
 
 trigger:
   event:
