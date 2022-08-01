@@ -3,9 +3,6 @@ kind: pipeline
 name: default
 type: docker
 
-# depends_on:
-#   - Build
-
 steps:
   - name: Build & Test Codebase
     image: node:lts-alpine
@@ -14,6 +11,16 @@ steps:
       - npm run build
       - npm test
 
+  - name: Execute Snyk Scans
+    image: node:lts-alpine
+    environment:
+      SNYK_TOKEN:
+        from_secret: SNYK_TOKEN
+    commands:
+      - echo $SNYK_TOKEN
+      - snyk auth $SNYK_TOKEN
+      - snyk monitor
+      - snyk code test
 # ---
 # kind: template
 # load: Build-And-Publish-TS-Module.yaml
