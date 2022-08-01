@@ -29,8 +29,9 @@ trigger:
       - weekly
       - nightly
   branch:
-    - main
-    - develop
+    include:
+      - main
+      - develop
 
 steps:
   - name: Perform Snyk Scans
