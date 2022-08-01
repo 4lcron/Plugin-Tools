@@ -1,6 +1,6 @@
 ---
-  kind: template
-  load: Build-And-Publish-TS-Module.yaml
-  data:
-    repoOwner: 4lch4
-    repoName: Cronicle-Plugin-Tools
+kind: template
+load: Build-And-Publish-TS-Module.yaml
+data:
+  repoOwner: 4lch4
+  repoName: Cronicle-Plugin-Tools
