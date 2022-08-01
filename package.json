@@ -13,8 +13,9 @@
   "homepage": "https://git.4lch4.io/4lch4/Cronicle-Plugin-Tools",
   "scripts": {
     "build": "tsc",
+    "lint": "prettier -c .",
     "pretty": "prettier --write .",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run lint && npm run build",
     "test": "echo \"No tests currently available.\""
   },
   "keywords": [
