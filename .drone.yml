@@ -1,7 +1,22 @@
 ---
-kind: template
-load: Build-And-Publish-TS-Module.yaml
-name: Build-And-Publish
-data:
-  repoOwner: 4lch4
-  repoName: Cronicle-Plugin-Tools
+kind: pipeline
+name: default
+type: docker
+
+# depends_on:
+#   - Build
+
+steps:
+  - name: Build & Test Codebase
+    image: node-alpine
+    commands:
+      - npm install
+      - npm run build
+      - npm test
+
+# ---
+# kind: template
+# load: Build-And-Publish-TS-Module.yaml
+# data:
+#   repoOwner: 4lch4
+#   repoName: Cronicle-Plugin-Tools
