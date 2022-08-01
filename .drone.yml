@@ -1,6 +1,6 @@
 ---
 kind: pipeline
-name: default
+name: Build-And-Publish
 type: docker
 
 steps:
@@ -11,16 +11,33 @@ steps:
       - npm run build
       - npm test
 
-  - name: Execute Snyk Scans
+---
+kind: pipeline
+name: Perform-Scheduled-Snyk-Scans
+type: docker
+
+depends_on:
+  - Build-And-Publish
+
+trigger:
+  event:
+    - cron
+  target:
+    include:
+      - weekly
+      - nightly
+
+steps:
+  - name: Perform Snyk Scans
     image: node:lts-alpine
     environment:
       SNYK_TOKEN:
         from_secret: SNYK_TOKEN
     commands:
-      - echo $SNYK_TOKEN
-      - snyk auth $SNYK_TOKEN
+      - npm install
       - snyk monitor
-      - snyk code test
+      - snyk code
+
 # ---
 # kind: template
 # load: Build-And-Publish-TS-Module.yaml
