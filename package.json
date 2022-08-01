@@ -12,7 +12,7 @@
     "lint": "prettier -c .",
     "pretty": "prettier --write .",
     "prepublishOnly": "npm run lint && npm run build",
-    "test": "echo \"No tests currently available.\""
+    "test": "npm run scan && npm run lint && echo 'No actual test files available, previous tasks completed successfully.'"
   },
   "keywords": [
     "cronicle",
