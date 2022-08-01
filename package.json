@@ -13,11 +13,7 @@
     "prepublishOnly": "npm run lint && npm run build",
     "test": "echo \"No tests currently available.\""
   },
-  "keywords": [
-    "cronicle",
-    "cronicle-tools",
-    "cronicle-plugin"
-  ],
+  "keywords": ["cronicle", "cronicle-tools", "cronicle-plugin"],
   "author": {
     "name": "4lch4",
     "email": "hey@4lch4.email",
