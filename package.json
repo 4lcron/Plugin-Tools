@@ -7,11 +7,11 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "scan": "snyk",
+    "scan": "snyk monitor && snyk code test",
     "build": "tsc",
-    "lint": "prettier -c .",
+    "lint": "npm run pretty && prettier -c .",
     "pretty": "prettier --write .",
-    "prepublishOnly": "npm run lint && npm run build",
+    "prepublishOnly": "npm run test && npm run build",
     "test": "npm run scan && npm run lint && echo 'No actual test files available, previous tasks completed successfully.'"
   },
   "keywords": [
