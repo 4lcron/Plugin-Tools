@@ -2,7 +2,7 @@
   "name": "@4is-cronicle/plugin-tools",
   "displayName": "Cronicle Plugin Tools",
   "version": "0.1.5",
-  "description": "A lib of helper functions for new Cronicle Plugins.",
+  "description": "A library of helper functions for new Cronicle Plugins.",
   "main": "dist/index.js",
   "type": "module",
   "types": "dist/index.d.ts",
