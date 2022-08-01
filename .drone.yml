@@ -16,24 +16,6 @@ steps:
       - npm run build
       - npm test
 
----
-kind: pipeline
-name: Perform-Scheduled-Snyk-Scans
-type: docker
-
-trigger:
-  event:
-    - cron
-  target:
-    include:
-      - weekly
-      - nightly
-  branch:
-    include:
-      - main
-      - develop
-
-steps:
   - name: Perform Snyk Scans
     image: node:lts-alpine
     environment:
@@ -43,6 +25,34 @@ steps:
       - npm install
       - snyk monitor
       - snyk code
+
+# ---
+# kind: pipeline
+# name: Perform-Scheduled-Snyk-Scans
+# type: docker
+
+# trigger:
+#   event:
+#     - cron
+#   target:
+#     include:
+#       - weekly
+#       - nightly
+#   branch:
+#     include:
+#       - main
+#       - develop
+
+# steps:
+#   - name: Perform Snyk Scans
+#     image: node:lts-alpine
+#     environment:
+#       SNYK_TOKEN:
+#         from_secret: SNYK_TOKEN
+#     commands:
+#       - npm install
+#       - snyk monitor
+#       - snyk code
 
 # ---
 # kind: template
