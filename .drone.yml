@@ -16,9 +16,6 @@ kind: pipeline
 name: Perform-Scheduled-Snyk-Scans
 type: docker
 
-depends_on:
-  - Build-And-Publish
-
 trigger:
   event:
     - cron
