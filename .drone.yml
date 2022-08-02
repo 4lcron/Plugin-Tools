@@ -38,39 +38,41 @@ steps:
         from_secret: DISCORD_WEBHOOK_TOKEN
       message: 'The latest build of [{{ .input.repoOwner }}/{{ .input.repoName }}](https://drone.4lch4.io/{{ .input.repoOwner }}/{{ .input.repoName }}) was successful.'
 
----
-type: docker
-kind: pipeline
-name: Publish Package
+#region Publish Package
+# ---
+# type: docker
+# kind: pipeline
+# name: Publish Package
 
-depends_on:
-  - 'Build'
+# depends_on:
+#   - 'Build'
 
-trigger:
-  event:
-    include:
-      - promote
+# trigger:
+#   event:
+#     include:
+#       - promote
 
-steps:
-  - name: Build Code
-    image: node:lts-alpine
-    commands:
-      - npm install
-      - npm run pretty
-      - npm run build
+# steps:
+#   - name: Build Code
+#     image: node:lts-alpine
+#     commands:
+#       - npm install
+#       - npm run pretty
+#       - npm run build
 
-  - name: Publish to NPM
-    image: plugins/npm
-    settings:
-      username: 4lch4
-      token:
-        from_secret: NPM_TOKEN
+#   - name: Publish to NPM
+#     image: plugins/npm
+#     settings:
+#       username: 4lch4
+#       token:
+#         from_secret: NPM_TOKEN
 
-  - name: Send Published Notification
-    image: appleboy/drone-discord
-    settings:
-      webhook_id:
-        from_secret: DISCORD_WEBHOOK_ID
-      webhook_token:
-        from_secret: DISCORD_WEBHOOK_TOKEN
-      message: 'The latest version of [{{ .input.repoOwner }}/{{ .input.repoName }}](https://drone.4lch4.io/{{ .input.repoOwner }}/{{ .input.repoName }}) was successfully published.'
+#   - name: Send Published Notification
+#     image: appleboy/drone-discord
+#     settings:
+#       webhook_id:
+#         from_secret: DISCORD_WEBHOOK_ID
+#       webhook_token:
+#         from_secret: DISCORD_WEBHOOK_TOKEN
+#       message: 'The latest version of [{{ .input.repoOwner }}/{{ .input.repoName }}](https://drone.4lch4.io/{{ .input.repoOwner }}/{{ .input.repoName }}) was successfully published.'
+#endregion Publish Package
