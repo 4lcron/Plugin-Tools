@@ -49,7 +49,6 @@ The following list defines/describes the members that are exported by the [@4is-
 [20]: ./src/interfaces/IJobOutput.ts
 [21]: ./src/utils/IOUtil.ts
 
-
 <!-- [0]: https://github.com/jhuckaby/Cronicle#plugins
 [1]: https://npmjs.com/package/@4is-cronicle/plugin-tools
 [2]: https://npmjs.com/package/@4lch4/logger -->

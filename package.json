@@ -18,11 +18,7 @@
     "prepublishOnly": "npm run test && npm run build",
     "test": "npm run lint && echo 'No actual test files available, previous tasks completed successfully.'"
   },
-  "keywords": [
-    "cronicle",
-    "cronicle-tools",
-    "cronicle-plugin"
-  ],
+  "keywords": ["cronicle", "cronicle-tools", "cronicle-plugin"],
   "author": {
     "name": "4lch4",
     "email": "hey@4lch4.email",
