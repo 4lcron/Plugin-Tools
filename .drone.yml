@@ -22,7 +22,7 @@ steps:
       SNYK_TOKEN:
         from_secret: SNYK_TOKEN
     commands:
-      - npm install
+      - npm i -g snyk
       - snyk monitor
       - snyk code
 
