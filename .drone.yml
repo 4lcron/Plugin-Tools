@@ -11,20 +11,23 @@ trigger:
 steps:
   - name: Build & Test Codebase
     image: node:lts-alpine
+    environment:
+      SNYK_TOKEN:
+        from_secret: SNYK_TOKEN
     commands:
       - npm install
       - npm run build
       - npm test
 
-  - name: Perform Snyk Scans
-    image: node:lts-alpine
-    environment:
-      SNYK_TOKEN:
-        from_secret: SNYK_TOKEN
-    commands:
-      - npm i -g snyk
-      - snyk monitor
-      - snyk code
+  # - name: Perform Snyk Scans
+  #   image: node:lts-alpine
+  #   environment:
+  #     SNYK_TOKEN:
+  #       from_secret: SNYK_TOKEN
+  #   commands:
+  #     - npm i -g snyk
+  #     - snyk monitor
+  #     - snyk code
 
 # ---
 # kind: pipeline
