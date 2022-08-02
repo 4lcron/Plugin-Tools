@@ -1,6 +1,7 @@
 import { IJobInput, IJobOutput } from './interfaces'
 import { IOUtil } from './utils'
 
+export * from '@4lch4/logger'
 export { IJobInput, IJobOutput }
 
 /**
