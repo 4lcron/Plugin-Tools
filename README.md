@@ -13,15 +13,18 @@ The following list defines/describes the members that are exported by the [@4is-
 - [@4lch4/logger][18]
   - All exported members of the `@4lch4/logger` library are also exported by `@4is-cronicle/plugin-tools`.
 - Interfaces
-  - [IJobInput][20]
-  - [IJobOutput][21]
+  - [IJobInput][19]
+  - [IJobOutput][20]
 - Top-Level Functions
   - `initJob`
     - Initialize a Cronicle job. Returns the job input object read from STDIN.
-    - Returns an object of type [IJobInput][20].
+    - Returns an object of type [IJobInput][19].
   - `endJob`
     - Ends the execution of the job by writing the output to STDOUT using `JSON.stringify()` and then exiting the process using the code provided in `output.code`. The exit code defaults to **0** unless otherwise specified.
-    - Requires a parameter object of type [IJobOutput][21].
+    - Requires a parameter object of type [IJobOutput][20].
+- Utility Class(es)
+  - [IOUtil][21]
+    - Provides the `readPipedInput` method for reading input from STDIN and parsing it as a JSON object.
 
 [0]: https://img.shields.io/drone/build/4IS-Cronicle/Plugin-Tools/main?server=https%3A%2F%2Fdrone.4lch4.io&style=flat-square
 [1]: https://drone.4lch4.io/4IS-Cronicle/Plugin-Tools
@@ -42,12 +45,11 @@ The following list defines/describes the members that are exported by the [@4is-
 [16]: https://github.com/jhuckaby/Cronicle#plugins
 [17]: https://npmjs.com/package/@4is-cronicle/plugin-tools
 [18]: https://npmjs.com/package/@4lch4/logger
-[19]: 
+[19]: ./src/interfaces/IJobInput.ts
+[20]: ./src/interfaces/IJobOutput.ts
+[21]: ./src/utils/IOUtil.ts
 
 
 <!-- [0]: https://github.com/jhuckaby/Cronicle#plugins
 [1]: https://npmjs.com/package/@4is-cronicle/plugin-tools
 [2]: https://npmjs.com/package/@4lch4/logger -->
-[20]: ./src/interfaces/IJobInput.ts
-[21]: ./src/interfaces/IJobOutput.ts
-
