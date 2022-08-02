@@ -29,22 +29,6 @@ steps:
       - snyk monitor
       - snyk code test
 
-  #region Publish Codecov/Codacy Results
-  # - name: codecov
-  #   image: robertstettner/drone-codecov
-  #   settings:
-  #     files:
-  #       - "coverage/**"
-  #     token:
-  #       from_secret: CODECOV_TOKEN
-
-  # - name: Publish to Codacy
-  #   image: plugins/codacy
-  #   settings:
-  #     token:
-  #       from_secret: CODACY_TOKEN
-  #endregion Publish Codecov/Codacy Results
-
   - name: Send Built Notification
     image: appleboy/drone-discord
     settings:
@@ -69,7 +53,7 @@ trigger:
 
 steps:
   - name: Build Code
-    image: node
+    image: node:lts-alpine
     commands:
       - npm install
       - npm run pretty
