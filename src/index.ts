@@ -1,6 +1,7 @@
-import { IJobInput, IJobOutput } from './interfaces'
-import { IOUtil } from './utils'
+import { IJobInput, IJobOutput } from './interfaces/index.js'
+import { IOUtil } from './utils/index.js'
 
+export * from './utils/index.js'
 export * from '@4lch4/logger'
 export { IJobInput, IJobOutput }
 

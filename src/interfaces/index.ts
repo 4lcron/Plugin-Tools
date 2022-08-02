@@ -1,2 +1,2 @@
-export * from './IJobInput'
-export * from './IJobOutput'
+export * from './IJobInput.js'
+export * from './IJobOutput.js'
