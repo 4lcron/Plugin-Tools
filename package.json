@@ -6,6 +6,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.4lch4.io:22022/4lch4/Cronicle-Plugin-Tools.git"
+  },
   "scripts": {
     "scan": "snyk monitor && snyk code test",
     "build": "tsc",
