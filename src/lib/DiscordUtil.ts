@@ -1,7 +1,7 @@
 import { logger } from '@4lch4/logger'
 import { MessageBuilder, Webhook } from 'discord-ts-webhook'
 import { IDiscordConfig, IMessageInput } from '../interfaces/index.js'
-import { MessageDefaults } from './defaults/index.js'
+import { MessageDefaults } from './constants/index.js'
 
 /**
  * This class is a utility class that provides helper methods for sending
