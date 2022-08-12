@@ -1,4 +1,4 @@
-import { IJobInput, IJobOutput } from './interfaces/index.js'
+import * as Interfaces from './interfaces/index.js'
 import { DiscordUtil, IOUtil } from './lib/index.js'
 
 // #region Helper/Utility Functions
@@ -9,10 +9,10 @@ import { DiscordUtil, IOUtil } from './lib/index.js'
  *
  * @returns The input object for the job.
  */
-export async function initJob<Params>(): Promise<IJobInput<Params>> {
+export async function initJob<Params>(): Promise<Interfaces.IJobInput<Params>> {
   const ioUtil = new IOUtil()
 
-  return ioUtil.readPipedInput<IJobInput<Params>>()
+  return ioUtil.readPipedInput<Interfaces.IJobInput<Params>>()
 }
 
 /**
@@ -22,7 +22,7 @@ export async function initJob<Params>(): Promise<IJobInput<Params>> {
  *
  * @param output The output object to be written to STDOUT.
  */
-export async function endJob(output: IJobOutput): Promise<void> {
+export async function endJob(output: Interfaces.IJobOutput): Promise<void> {
   // Update the output object to include the exit code if it is not already set.
   output = {
     ...output,
@@ -34,17 +34,19 @@ export async function endJob(output: IJobOutput): Promise<void> {
 }
 // #endregion Helper/Utility Functions
 
-const dUtil = new DiscordUtil({
-  webhookUrl:
-    'https://discord.com/api/webhooks/1000947228678049913/141v4iiAHzMfxiSqzSVXDz2Z0nHRm2aT80kSEP0CQXU8MmmTzoGUSoturdO7iv3CZ_OJ'
-})
+// #region Primary Code
+/** The function that is called when the plugin is run. */
+export async function main() {
+  const dtUtil = new DiscordUtil({ webhookUrl: process.env.DISCORD_WEBHOOK_URL })
 
-dUtil
-  .sendMsg({
+  return dtUtil.sendMsg({
     title: 'Hello, world.',
     description: 'This is a test message.',
     text: 'Ehhh... Is this thing on?'
   })
+}
+
+main()
   .then(res => {
     console.log(res)
     console.log('Execution completed successfully!')
@@ -53,7 +55,25 @@ dUtil
     console.error('Error received during sendMsg() execution:')
     console.error(err)
   })
+// #endregion Primary Code
+
+// dUtil
+// new DiscordUtil({ webhookUrl: process.env.DISCORD_WEBHOOK_URL })
+//   .sendMsg({
+//     title: 'Hello, world.',
+//     description: 'This is a test message.',
+//     text: 'Ehhh... Is this thing on?'
+//   })
+//   .then(res => {
+//     console.log(res)
+//     console.log('Execution completed successfully!')
+//   })
+//   .catch(err => {
+//     console.error('Error received during sendMsg() execution:')
+//     console.error(err)
+//   })
 
 export * from '@4lch4/logger'
 export * from './lib/index.js'
-export { IJobInput, IJobOutput }
+export { Interfaces }
+
