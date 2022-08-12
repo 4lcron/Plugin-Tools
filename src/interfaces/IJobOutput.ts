@@ -2,6 +2,7 @@
 export interface ITableOut {
   /** Optional title displayed above the table, defaults to "Job Stats". */
   title?: string
+
   /**
    * Optional array of header columns, displayed in shaded bold above the main
    * data rows.
@@ -31,6 +32,7 @@ export interface IJobOutput {
   complete?: number
   code?: number
   description?: string
+
   /** A number indicating how complete the task is. (0.5 = 50%) */
   progress?: number
   notify_success?: string

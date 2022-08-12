@@ -1,8 +1,8 @@
 /**
  * A JSON object that is passed to the job when it is started. The generic type
- * `P` is the type of object containing the Plugin's custom parameters.
+ * `Params` is the type of object containing the Plugin's custom parameters.
  */
-export interface IJobInput<P> {
+export interface IJobInput<Params> {
   /** A unique alphanumeric ID assigned to the job. */
   id: string
 
@@ -32,7 +32,7 @@ export interface IJobInput<P> {
    * An object containing your Plugin's custom parameters, filled out with
    * values from the Event Editor.
    */
-  params: P | any
+  params: Params | any
 
   /** Custom user data, if applicable. */
   chain_data?: any
