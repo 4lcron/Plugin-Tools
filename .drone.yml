@@ -2,6 +2,5 @@
 kind: template
 load: Build-And-Publish-TS-Module.yaml
 data:
-  repoOwner: 4IS-Cronicle
+  repoOwner: 4Cronicle
   repoName: Plugin-Tools
-  versionNumber: v0.1.13
