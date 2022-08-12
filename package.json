@@ -40,9 +40,11 @@
   "dependencies": {
     "@4lch4/logger": "^1.9.2",
     "discord-ts-webhook": "^1.2.1",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "fs-extra": "^10.1.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
     "@types/node": "^16.11.47",
     "prettier": "^2.7.1",
     "snyk": "^1.981.0",
