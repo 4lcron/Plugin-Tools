@@ -1,7 +1,7 @@
 import { logger } from '@4lch4/logger'
 import { MessageBuilder, Webhook } from 'discord-ts-webhook'
 import { IDiscordConfig, IMessageInput } from '../interfaces/index.js'
-import { MessageDefaults } from './constants/index.js'
+import { MessageDefaults, ErrorMessages } from './constants/index.js'
 
 /**
  * This class is a utility class that provides helper methods for sending
@@ -41,7 +41,7 @@ export class DiscordUtil {
     else if (this.config.webhookId && this.config.webhookToken) {
       return `https://discord.com/api/webhooks/${this.config.webhookId}/${this.config.webhookToken}`
     } else {
-      throw new Error('DiscordUtil#getWebhookUrl(): No webhook URL or webhook ID/token provided.')
+      throw new Error(ErrorMessages.NO_WEBHOOK_URL)
     }
   }
 
